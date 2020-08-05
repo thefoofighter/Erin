@@ -1,11 +1,11 @@
 ﻿#pragma once
 
-#include "ErinCore/Core.h"
+#include "DKGLCore/Core.h"
 
 #include <string>
 #include <functional>
 
-namespace Erin
+namespace DKGL
 {
 	enum class EventType
 	{
@@ -32,7 +32,7 @@ namespace Erin
 
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 
-	class ERN_API Event
+	class DKGL_API Event
 	{
 		friend class EventDispatcher;
 	public:

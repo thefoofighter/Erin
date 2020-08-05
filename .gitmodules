@@ -1,3 +1,3 @@
-[submodule "ErinCore/3rdparty/spdlog"]
-	path = ErinCore/3rdparty/spdlog
+[submodule "DKGLCore/3rdparty/spdlog"]
+	path = DKGLCore/3rdparty/spdlog
 	url = https://github.com/gabime/spdlog.git

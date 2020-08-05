@@ -1,2 +1,2 @@
-# Erin
-Erin is an ambitious opensource 3D Modeling Tool inspired by Softimage. www.3dwillneverbethesame.com
+# DKGL
+DKGL is an ambitious attempt to rebuild the original Dungeon Keeper game for modern platforms using all the original assets with improved multiplayer.

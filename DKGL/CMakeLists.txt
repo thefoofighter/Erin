@@ -1,10 +1,10 @@
-project(Erin CXX)
+project(DKGL CXX)
 
 ################################################################################
 # Source groups
 ################################################################################
 set(Sources
-    "src/ErinApp.cpp"
+    "src/DKGLApp.cpp"
 )
 source_group("Sources" FILES ${Sources})
 
@@ -18,7 +18,7 @@ set(ALL_FILES
 add_executable(${PROJECT_NAME} ${ALL_FILES})
 
 use_props(${PROJECT_NAME} "${CMAKE_CONFIGURATION_TYPES}" "${DEFAULT_CXX_PROPS}")
-set(ROOT_NAMESPACE Erin)
+set(ROOT_NAMESPACE DKGL)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
     VS_GLOBAL_KEYWORD "Win32Proj"
@@ -27,24 +27,24 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 # Target name
 ################################################################################
 set_target_properties(${PROJECT_NAME} PROPERTIES
-    TARGET_NAME_DEBUG   "Erin"
-    TARGET_NAME_DIST    "Erin"
-    TARGET_NAME_RELEASE "Erin"
+    TARGET_NAME_DEBUG   "DKGL"
+    TARGET_NAME_DIST    "DKGL"
+    TARGET_NAME_RELEASE "DKGL"
 )
 ################################################################################
 # Output directory
 ################################################################################
 set_target_properties(${PROJECT_NAME} PROPERTIES
-    OUTPUT_DIRECTORY_DEBUG   "${CMAKE_CURRENT_SOURCE_DIR}/../Build/bin/Debug-windows-x86_64/Erin/"
-    OUTPUT_DIRECTORY_DIST    "${CMAKE_CURRENT_SOURCE_DIR}/../Build/bin/Dist-windows-x86_64/Erin/"
-    OUTPUT_DIRECTORY_RELEASE "${CMAKE_CURRENT_SOURCE_DIR}/../Build/bin/Release-windows-x86_64/Erin/"
+    OUTPUT_DIRECTORY_DEBUG   "${CMAKE_CURRENT_SOURCE_DIR}/../Build/bin/Debug-windows-x86_64/DKGL/"
+    OUTPUT_DIRECTORY_DIST    "${CMAKE_CURRENT_SOURCE_DIR}/../Build/bin/Dist-windows-x86_64/DKGL/"
+    OUTPUT_DIRECTORY_RELEASE "${CMAKE_CURRENT_SOURCE_DIR}/../Build/bin/Release-windows-x86_64/DKGL/"
 )
 ################################################################################
 # Include directories
 ################################################################################
 target_include_directories(${PROJECT_NAME} PUBLIC
-    "${CMAKE_CURRENT_SOURCE_DIR}/../ErinCore/3rdparty/spdlog/include;"
-    "${CMAKE_CURRENT_SOURCE_DIR}/../ErinCore/src"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../DKGLCore/3rdparty/spdlog/include;"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../DKGLCore/src"
 )
 
 ################################################################################
@@ -52,15 +52,15 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 ################################################################################
 target_compile_definitions(${PROJECT_NAME} PRIVATE
     "$<$<CONFIG:Debug>:"
-        "ERN_DEBUG"
+        "DKGL_DEBUG"
     ">"
     "$<$<CONFIG:Dist>:"
-        "ERN_DIST"
+        "DKGL_DIST"
     ">"
     "$<$<CONFIG:Release>:"
-        "ERN_RELEASE"
+        "DKGL_RELEASE"
     ">"
-    "ERN_PLATFORM_WINDOWS;"
+    "DKGL_PLATFORM_WINDOWS;"
     "UNICODE;"
     "_UNICODE"
 )
@@ -123,11 +123,11 @@ endif()
 # Dependencies
 ################################################################################
 add_dependencies(${PROJECT_NAME}
-    ErinCore
+    DKGLCore
 )
 
 # Link with other targets.
 target_link_libraries(${PROJECT_NAME} PUBLIC
-    ErinCore
+    DKGLCore
 )
 

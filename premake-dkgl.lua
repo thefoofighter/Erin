@@ -1,4 +1,4 @@
-solution "Erin"
+solution "DKGL"
 	architecture "x64"
 
 	configurations
@@ -10,9 +10,9 @@ solution "Erin"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
--- Config for Erin Core Engine
-project "ErinCore"
-	location "ErinCore"
+-- Config for DKGL Core Engine
+project "DKGLCore"
+	location "DKGLCore"
 	kind "SharedLib"
 	language "c++"
 
@@ -38,31 +38,31 @@ project "ErinCore"
 
 		defines
 		{
-			"ERN_PLATFORM_WINDOWS",
-			"ERN_BUILD_DLL"
+			"DKGL_PLATFORM_WINDOWS",
+			"DKGL_BUILD_DLL"
 		}
 
 		postbuildcommands
 		{
-			( "{COPY} %{cfg.buildtarget.relpath} ../Build/bin/" .. outputdir .. "/Erin" )
+			( "{COPY} %{cfg.buildtarget.relpath} ../Build/bin/" .. outputdir .. "/DKGL" )
 		}
 
 
 	filter "configurations:Debug"
-		defines "ERN_DEBUG"
+		defines "DKGL_DEBUG"
 		symbols "On"
 
 	filter "configurations:Release"
-		defines "ERN_RELEASE"
+		defines "DKGL_RELEASE"
 		optimize "On"
 
 	filter "configurations:Dist"
-		defines "ERN_DIST"
+		defines "DKGL_DIST"
 		optimize "On"
 
--- Config for the Erin 3D Editor
-project "Erin"
-	location "Erin"
+-- Config for the DKGL 3D Editor
+project "DKGL"
+	location "DKGL"
 	kind "ConsoleApp"
 	language "c++"
 
@@ -77,13 +77,13 @@ project "Erin"
 
 	includedirs
 	{
-		"ErinCore/3rdparty/spdlog/include",
-		"ErinCore/src"
+		"DKGLCore/3rdparty/spdlog/include",
+		"DKGLCore/src"
 	}
 
 	links
 	{
-		"ErinCore"
+		"DKGLCore"
 	}
 
 	filter "system:windows"
@@ -93,17 +93,17 @@ project "Erin"
 
 		defines
 		{
-			"ERN_PLATFORM_WINDOWS"
+			"DKGL_PLATFORM_WINDOWS"
 		}
 
 	filter "configurations:Debug"
-		defines "ERN_DEBUG"
+		defines "DKGL_DEBUG"
 		symbols "On"
 
 	filter "configurations:Release"
-		defines "ERN_RELEASE"
+		defines "DKGL_RELEASE"
 		optimize "On"
 
 	filter "configurations:Dist"
-		defines "ERN_DIST"
+		defines "DKGL_DIST"
 		optimize "On"

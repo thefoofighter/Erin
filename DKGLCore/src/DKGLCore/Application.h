@@ -2,9 +2,9 @@
 
 #include "Core.h"
 
-namespace Erin {
+namespace DKGL {
 
-	class ERN_API Application
+	class DKGL_API Application
 	{
 	public:
 		Application();
