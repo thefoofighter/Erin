@@ -7,7 +7,7 @@
 		#define DKGL_API __declspec(dllimport)
 	#endif
 #else
-	#error DKGL Only supports Windows for now!
+    #define DKGL_API
 #endif
 
 #define BIT(x) (1 << x)
