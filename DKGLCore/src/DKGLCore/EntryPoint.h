@@ -1,6 +1,5 @@
 #pragma once
 
-#ifdef DKGL_PLATFORM_WINDOWS
 
 extern DKGL::Application* DKGL::CreateApplication();
 
@@ -15,5 +14,3 @@ int main(int argc, char** argv)
 	app->Run();
 	delete app;
 }
-
-#endif

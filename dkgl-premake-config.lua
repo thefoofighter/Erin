@@ -47,6 +47,22 @@ project "DKGLCore"
 			( "{COPY} %{cfg.buildtarget.relpath} ../Build/bin/" .. outputdir .. "/DKGL" )
 		}
 
+	filter "system:linux"
+		cppdialect "C++17"
+		staticruntime "On"
+		systemversion "latest"
+
+		defines
+		{
+			"DKGL_PLATFORM_LINUX",
+			"DKGL_BUILD_DLL"	
+		}
+
+		postbuildcommands
+		{
+			( "{COPY} %{cfg.buildtarget.relpath} ../Build/bin/" .. outputdir .. "/DKGL" )
+		}
+
 
 	filter "configurations:Debug"
 		defines "DKGL_DEBUG"
@@ -94,6 +110,16 @@ project "DKGL"
 		defines
 		{
 			"DKGL_PLATFORM_WINDOWS"
+		}
+
+	filter "system:linux"
+		cppdialect "C++17"
+		staticruntime "On"
+		systemversion "latest"
+
+		defines
+		{
+			"DKGL_PLATFORM_LINUX"	
 		}
 
 	filter "configurations:Debug"
