@@ -58,10 +58,10 @@ project "DKGLCore"
 			"DKGL_BUILD_DLL"	
 		}
 
-		postbuildcommands
-		{
-			( "{COPY} %{cfg.buildtarget.relpath} ../Build/bin/" .. outputdir .. "/DKGL" )
-		}
+		--postbuildcommands
+		--{
+		--	( "{COPY} %{cfg.buildtarget.relpath} ../Build/bin/" .. outputdir .. "/DKGL" )
+		--}
 
 	filter "system:macosx"
 		cppdialect "C++17"
