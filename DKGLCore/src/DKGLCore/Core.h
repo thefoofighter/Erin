@@ -11,6 +11,12 @@
 		#define DKGL_API __attribute__((visibility("default")))
 	#else
 		#define DKGL_API
+    #endif
+#elif defined DKGL_PLATFORM_MAC
+    #ifdef DKGL_BUILD_DLL
+		#define DKGL_API __attribute__((visibility("default")))
+	#else
+		#define DKGL_API
 	#endif
 #else
     #error Unsupported platform!

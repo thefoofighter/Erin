@@ -63,6 +63,22 @@ project "DKGLCore"
 			( "{COPY} %{cfg.buildtarget.relpath} ../Build/bin/" .. outputdir .. "/DKGL" )
 		}
 
+	filter "system:macosx"
+		cppdialect "C++17"
+		staticruntime "On"
+		systemversion "latest"
+
+		defines
+		{
+			"DKGL_PLATFORM_MAC",
+			"DKGL_BUILD_DLL"	
+		}
+
+		--postbuildcommands
+		--{
+		--	( "{COPY} %{cfg.buildtarget.relpath} ../Build/bin/" .. outputdir .. "/DKGL" )
+		--}
+
 
 	filter "configurations:Debug"
 		defines "DKGL_DEBUG"
@@ -120,6 +136,16 @@ project "DKGL"
 		defines
 		{
 			"DKGL_PLATFORM_LINUX"	
+		}
+
+	filter "system:macosx"
+		cppdialect "C++17"
+		staticruntime "On"
+		systemversion "latest"
+
+		defines
+		{
+			"DKGL_PLATFORM_MAC"
 		}
 
 	filter "configurations:Debug"
