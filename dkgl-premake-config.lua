@@ -141,7 +141,7 @@ project "DKGL"
 
 		postbuildcommands
 		{
-			"{COPY} ../Build/bin/" .. outputdir .. "/DKGLCore/ ../Build/bin/" .. outputdir .. "/DKGL/"
+			"{COPY} ../Build/bin/" .. outputdir .. "/DKGLCore/* ../Build/bin/" .. outputdir .. "/DKGL"
 		}
 
 	filter "system:macosx"
@@ -156,7 +156,7 @@ project "DKGL"
 
 		postbuildcommands
 		{
-			"{COPY} ../Build/bin/" .. outputdir .. "/DKGLCore/ ../Build/bin/" .. outputdir .. "/DKGL/"
+			"{COPY} ../Build/bin/" .. outputdir .. "/DKGLCore/* ../Build/bin/" .. outputdir .. "/DKGL"
 		}
 
 	filter "configurations:Debug"
