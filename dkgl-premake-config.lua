@@ -42,10 +42,6 @@ project "DKGLCore"
 			"DKGL_BUILD_DLL"
 		}
 
-		postbuildcommands
-		{
-			( "{COPY} %{cfg.buildtarget.relpath} ../Build/bin/" .. outputdir .. "/DKGL" )
-		}
 
 	filter "system:linux"
 		cppdialect "C++17"
@@ -128,6 +124,11 @@ project "DKGL"
 			"DKGL_PLATFORM_WINDOWS"
 		}
 
+		postbuildcommands
+		{
+			"{COPY} ../Build/bin/" .. outputdir .. "/DKGLCore/ ../Build/bin/" .. outputdir .. "/DKGL/"
+		}
+
 	filter "system:linux"
 		cppdialect "C++17"
 		staticruntime "On"
@@ -138,6 +139,11 @@ project "DKGL"
 			"DKGL_PLATFORM_LINUX"	
 		}
 
+		postbuildcommands
+		{
+			"{COPY} ../Build/bin/" .. outputdir .. "/DKGLCore/ ../Build/bin/" .. outputdir .. "/DKGL/"
+		}
+
 	filter "system:macosx"
 		cppdialect "C++17"
 		staticruntime "On"
@@ -146,6 +152,11 @@ project "DKGL"
 		defines
 		{
 			"DKGL_PLATFORM_MAC"
+		}
+
+		postbuildcommands
+		{
+			"{COPY} ../Build/bin/" .. outputdir .. "/DKGLCore/ ../Build/bin/" .. outputdir .. "/DKGL/"
 		}
 
 	filter "configurations:Debug"
@@ -159,3 +170,4 @@ project "DKGL"
 	filter "configurations:Dist"
 		defines "DKGL_DIST"
 		optimize "On"
+
