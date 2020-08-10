@@ -1,3 +1,5 @@
 #!/bin/bash
-
-./Tools/premake/premake5-mac --file=dkgl-premake-config.lua --os=macosx gmake
+cp config/erin-premake-config.lua ../../
+cd ../../
+./Tools/Binaries/premake/premake5-mac --file=erin-premake-config.lua --os=macosx gmake
+rm erin-premake-config.lua
