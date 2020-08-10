@@ -4,9 +4,9 @@
 
 #include <sstream>
 
-namespace DKGL {
+namespace Erin {
 
-    class DKGL_API MouseMovedEvent
+    class ERIN_API MouseMovedEvent
 
     : public Event {
     public:
@@ -36,7 +36,7 @@ private:
 float m_MouseX, m_MouseY;
 };
 
-class DKGL_API MouseScrolledEvent
+class ERIN_API MouseScrolledEvent
 
 : public Event
 {
@@ -75,7 +75,7 @@ private:
 float m_XOffset, m_YOffset;
 };
 
-class DKGL_API MouseButtonEvent
+class ERIN_API MouseButtonEvent
 
 : public Event
 {
@@ -92,7 +92,7 @@ MouseButtonEvent(int button)
 int m_Button;
 };
 
-class DKGL_API MouseButtonPressedEvent
+class ERIN_API MouseButtonPressedEvent
 
 : public MouseButtonEvent
 {
@@ -117,7 +117,7 @@ str();
 EVENT_CLASS_TYPE(MouseButtonPressed)
 };
 
-class DKGL_API MouseButtonReleasedEvent
+class ERIN_API MouseButtonReleasedEvent
 
 : public MouseButtonEvent
 {

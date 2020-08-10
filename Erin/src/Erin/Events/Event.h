@@ -1,11 +1,11 @@
 ﻿#pragma once
 
-#include "DKGLCore/Core.h"
+#include "Erin/Core.h"
 
 #include <string>
 #include <functional>
 
-namespace DKGL {
+namespace Erin {
 
     // Events in Hazel are currently blocking, meaning when an event occurs it
     // immediately gets dispatched and must be dealt with right then an there.
@@ -37,7 +37,7 @@ namespace DKGL {
 
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 
-    class DKGL_API Event
+    class ERIN_API Event
     {
         friend class EventDispatcher;
     public:

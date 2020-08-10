@@ -4,9 +4,9 @@
 
 #include <sstream>
 
-namespace DKGL {
+namespace Erin {
 
-    class DKGL_API WindowResizeEvent : public Event
+    class ERIN_API WindowResizeEvent : public Event
 {
     public:
     WindowResizeEvent(unsigned int width, unsigned int height)
@@ -28,7 +28,7 @@ private:
 unsigned int m_Width, m_Height;
 };
 
-class DKGL_API WindowCloseEvent : public Event
+class ERIN_API WindowCloseEvent : public Event
 {
 public:
 WindowCloseEvent() {}
@@ -37,7 +37,7 @@ EVENT_CLASS_TYPE(WindowClose)
 EVENT_CLASS_CATEGORY(EventCategoryApplication)
 };
 
-class DKGL_API AppTickEvent : public Event
+class ERIN_API AppTickEvent : public Event
 {
 public:
 AppTickEvent() {}
@@ -46,7 +46,7 @@ EVENT_CLASS_TYPE(AppTick)
 EVENT_CLASS_CATEGORY(EventCategoryApplication)
 };
 
-class DKGL_API AppUpdateEvent : public Event
+class ERIN_API AppUpdateEvent : public Event
 {
 public:
 AppUpdateEvent() {}
@@ -55,7 +55,7 @@ EVENT_CLASS_TYPE(AppUpdate)
 EVENT_CLASS_CATEGORY(EventCategoryApplication)
 };
 
-class DKGL_API AppRenderEvent : public Event
+class ERIN_API AppRenderEvent : public Event
 {
 public:
 AppRenderEvent() {}

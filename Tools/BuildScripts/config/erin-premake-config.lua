@@ -1,4 +1,4 @@
-solution "DKGL"
+solution "Erin"
 	architecture "x64"
 
 	configurations
@@ -10,14 +10,17 @@ solution "DKGL"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
--- Config for DKGL Core Engine
-project "DKGLCore"
-	location "DKGLCore"
+-- Config for the Erin Engine
+project "Erin"
+	location "Erin"
 	kind "SharedLib"
 	language "c++"
 
 	targetdir ("Build/bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("Build/bintermediate/" .. outputdir .. "/%{prj.name}")
+
+	pchheader "ErinPCH.h"
+	pchsource "%{prj.name}/src/ErinPCH.cpp"
 
 	files
 	{
@@ -38,8 +41,8 @@ project "DKGLCore"
 
 		defines
 		{
-			"DKGL_PLATFORM_WINDOWS",
-			"DKGL_BUILD_DLL"
+			"ERIN_PLATFORM_WINDOWS",
+			"ERIN_BUILD_DLL"
 		}
 
 
@@ -50,14 +53,10 @@ project "DKGLCore"
 
 		defines
 		{
-			"DKGL_PLATFORM_LINUX",
-			"DKGL_BUILD_DLL"	
+			"ERIN_PLATFORM_LINUX",
+			"ERIN_BUILD_DLL"	
 		}
 
-		--postbuildcommands
-		--{
-		--	( "{COPY} %{cfg.buildtarget.relpath} ../Build/bin/" .. outputdir .. "/DKGL" )
-		--}
 
 	filter "system:macosx"
 		cppdialect "C++17"
@@ -66,31 +65,26 @@ project "DKGLCore"
 
 		defines
 		{
-			"DKGL_PLATFORM_MAC",
-			"DKGL_BUILD_DLL"	
+			"ERIN_PLATFORM_MAC",
+			"ERIN_BUILD_DLL"	
 		}
-
-		--postbuildcommands
-		--{
-		--	( "{COPY} %{cfg.buildtarget.relpath} ../Build/bin/" .. outputdir .. "/DKGL" )
-		--}
 
 
 	filter "configurations:Debug"
-		defines "DKGL_DEBUG"
+		defines "ERIN_DEBUG"
 		symbols "On"
 
 	filter "configurations:Release"
-		defines "DKGL_RELEASE"
+		defines "ERIN_RELEASE"
 		optimize "On"
 
 	filter "configurations:Dist"
-		defines "DKGL_DIST"
+		defines "ERIN_DIST"
 		optimize "On"
 
--- Config for the DKGL 3D Editor
-project "DKGL"
-	location "DKGL"
+-- Config for the Sandbox
+project "Sandbox"
+	location "Sandbox"
 	kind "ConsoleApp"
 	language "c++"
 
@@ -105,13 +99,13 @@ project "DKGL"
 
 	includedirs
 	{
-		"DKGLCore/3rdparty/spdlog/include",
-		"DKGLCore/src"
+		"Erin/3rdparty/spdlog/include",
+		"Erin/src"
 	}
 
 	links
 	{
-		"DKGLCore"
+		"Erin"
 	}
 
 	filter "system:windows"
@@ -121,12 +115,12 @@ project "DKGL"
 
 		defines
 		{
-			"DKGL_PLATFORM_WINDOWS"
+			"ERIN_PLATFORM_WINDOWS"
 		}
 
 		postbuildcommands
 		{
-			"{COPY} ../Build/bin/" .. outputdir .. "/DKGLCore/ ../Build/bin/" .. outputdir .. "/DKGL/"
+			"{COPY} ../Build/bin/" .. outputdir .. "/Erin/ ../Build/bin/" .. outputdir .. "/Sandbox/"
 		}
 
 	filter "system:linux"
@@ -136,12 +130,12 @@ project "DKGL"
 
 		defines
 		{
-			"DKGL_PLATFORM_LINUX"	
+			"ERIN_PLATFORM_LINUX"	
 		}
 
 		postbuildcommands
 		{
-			"{COPY} ../Build/bin/" .. outputdir .. "/DKGLCore/* ../Build/bin/" .. outputdir .. "/DKGL"
+			"{COPY} ../Build/bin/" .. outputdir .. "/Erin/* ../Build/bin/" .. outputdir .. "/Sandbox"
 		}
 
 	filter "system:macosx"
@@ -151,23 +145,23 @@ project "DKGL"
 
 		defines
 		{
-			"DKGL_PLATFORM_MAC"
+			"ERIN_PLATFORM_MAC"
 		}
 
 		postbuildcommands
 		{
-			"{COPY} ../Build/bin/" .. outputdir .. "/DKGLCore/* ../Build/bin/" .. outputdir .. "/DKGL"
+			"{COPY} ../Build/bin/" .. outputdir .. "/Erin/* ../Build/bin/" .. outputdir .. "/Sandbox"
 		}
 
 	filter "configurations:Debug"
-		defines "DKGL_DEBUG"
+		defines "ERIN_DEBUG"
 		symbols "On"
 
 	filter "configurations:Release"
-		defines "DKGL_RELEASE"
+		defines "ERIN_RELEASE"
 		optimize "On"
 
 	filter "configurations:Dist"
-		defines "DKGL_DIST"
+		defines "ERIN_DIST"
 		optimize "On"
 

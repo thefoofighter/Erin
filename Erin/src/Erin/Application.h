@@ -3,9 +3,9 @@
 #include "Core.h"
 #include "Events/Event.h"
 
-namespace DKGL {
+namespace Erin {
 
-	class DKGL_API Application
+	class ERIN_API Application
 	{
 	public:
 		Application();

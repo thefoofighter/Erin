@@ -4,9 +4,9 @@
 
 #include <sstream>
 
-namespace DKGL {
+namespace Erin {
 
-    class DKGL_API KeyEvent
+    class ERIN_API KeyEvent
 
     : public Event {
     public:
@@ -22,7 +22,7 @@ KeyEvent(int keycode)
 int m_KeyCode;
 };
 
-class DKGL_API KeyPressedEvent
+class ERIN_API KeyPressedEvent
 
 : public KeyEvent
 {
@@ -50,7 +50,7 @@ private:
 int m_RepeatCount;
 };
 
-class DKGL_API KeyReleasedEvent
+class ERIN_API KeyReleasedEvent
 
 : public KeyEvent
 {

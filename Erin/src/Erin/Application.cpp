@@ -1,11 +1,12 @@
+#ifndef ERINPCH_H
+#define ERINPCH_H
+
 #include "Application.h"
 
 #include "Events/ApplicationEvent.h"
 #include "Log.h"
 
-namespace DKGL {
-
-
+namespace Erin {
 
 	Application::Application()
 	{
@@ -18,9 +19,11 @@ namespace DKGL {
 	void Application::Run()
 	{
 	    WindowResizeEvent e(1280, 760);
-	    DKGL_LOG_TRACE(e);
+	    ERIN_LOG_TRACE(e);
 
 		while (true);
 	}
 
 }
+
+#endif
