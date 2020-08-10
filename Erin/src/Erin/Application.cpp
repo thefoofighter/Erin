@@ -1,5 +1,4 @@
-#ifndef ERINPCH_H
-#define ERINPCH_H
+#include "ErinPCH.h"
 
 #include "Application.h"
 
@@ -25,5 +24,3 @@ namespace Erin {
 	}
 
 }
-
-#endif
