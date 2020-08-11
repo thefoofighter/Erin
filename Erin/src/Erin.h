@@ -5,7 +5,6 @@
 
 #include "Erin/Application.h"
 #include "Erin/Log.h"
-
 // ---Entry Point---------------------
 #include "Erin/EntryPoint.h"
 // -----------------------------------
