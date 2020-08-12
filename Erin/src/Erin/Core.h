@@ -18,6 +18,8 @@
     #else
         #define ERIN_API
     #endif
+
+    #define GL_SILENCE_DEPRECATION
 #else
     #error Unsupported platform!
 #endif

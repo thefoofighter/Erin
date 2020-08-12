@@ -101,6 +101,14 @@ project "Erin"
             "ERIN_BUILD_DLL"
         }
 
+        links
+        {
+            "OpenGL.framework",
+            "Cocoa.framework",
+            "IOKit.framework",
+            "CoreFoundation.framework"
+        }
+
 
     filter "configurations:Debug"
         defines "ERIN_DEBUG"
