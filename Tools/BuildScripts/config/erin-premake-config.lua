@@ -4,12 +4,11 @@ workspace "Erin"
     configurations
     {
         "Debug",
-        "Release",
-        "Dist"
+        "Release"
     }
 
--- Get cur dir helper
-print("Working Dir: " .. io.popen"cd":read'*l')
+-- Get cur dir helper for windows?
+-- print("Working Dir: " .. io.popen"cd":read'*l')
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
@@ -46,9 +45,7 @@ project "Erin"
 
     links
     {
-        "GLFW",
-        "opengl32",
-        "gdi32"
+        "GLFW"
     }
 
     filter "system:windows"
@@ -59,11 +56,19 @@ project "Erin"
         defines
         {
             "ERIN_PLATFORM_WINDOWS",
-            "ERIN_BUILD_DLL"
+            "ERIN_BUILD_DLL",
+            "GLFW_INCLUDE_NONE"
+        }
+
+        links
+        {
+            "opengl32",
+            "gdi32"
         }
 
 
     filter "system:linux"
+        pic "On"
         cppdialect "C++17"
         staticruntime "On"
         systemversion "latest"
@@ -74,6 +79,16 @@ project "Erin"
             "ERIN_BUILD_DLL"
         }
 
+        links
+        {
+            "Xrandr",
+            "Xi",
+            "GLEW",
+            "GLU",
+            "GL",
+            "X11",
+            "pthread"
+        }
 
     filter "system:macosx"
         cppdialect "C++17"
@@ -89,15 +104,17 @@ project "Erin"
 
     filter "configurations:Debug"
         defines "ERIN_DEBUG"
+        runtime "Debug"
         symbols "On"
+        filter { "system:windows", "configurations:Debug" }
+            buildoptions "/MDd"
 
     filter "configurations:Release"
         defines "ERIN_RELEASE"
+        runtime "Release"
         optimize "On"
-
-    filter "configurations:Dist"
-        defines "ERIN_DIST"
-        optimize "On"
+        filter { "system:windows", "configurations:Release" }
+            buildoptions "/MD"
 
 -- Config for the Sandbox
 project "Sandbox"
@@ -172,13 +189,15 @@ project "Sandbox"
 
     filter "configurations:Debug"
         defines "ERIN_DEBUG"
+        runtime "Debug"
         symbols "On"
+        filter { "system:windows", "configurations:Debug" }
+            buildoptions "/MDd"
 
     filter "configurations:Release"
         defines "ERIN_RELEASE"
+        runtime "Release"
         optimize "On"
-
-    filter "configurations:Dist"
-        defines "ERIN_DIST"
-        optimize "On"
+        filter { "system:windows", "configurations:Release" }
+            buildoptions "/MD"
 
