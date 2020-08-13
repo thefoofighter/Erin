@@ -25,11 +25,11 @@
 #endif
 
 #ifdef ERIN_ENABLE_ASSERTS
+    #define ERIN_CLIENT_ASSERT(x, ...) { if(!(x)) { ERIN_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
     #define ERIN_ASSERT(x, ...) { if(!(x)) { ERIN_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
-    #define ERIN_CORE_ASSERT(x, ...) { if(!(x)) { ERIN_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 #else
+    #define ERIN_CLIENT_ASSERT(x, ...)
     #define ERIN_ASSERT(x, ...)
-    #define ERIN_CORE_ASSERT(x, ...)
 #endif
 
 #define BIT(x) (1 << x)
