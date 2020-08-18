@@ -93,7 +93,7 @@ project "GLFW"
             "_GLFW_COCOA"
         }
 
-    filter { "system:windows", "configurations:Release" }
+    filter { "system:windows", "configurations:Release", "action:vs*" }
         buildoptions "/MT"
 
 

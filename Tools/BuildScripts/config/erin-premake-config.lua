@@ -113,15 +113,15 @@ project "Erin"
         defines "ERIN_DEBUG"
         runtime "Debug"
         symbols "On"
-        --filter { "system:windows", "configurations:Debug" }
-         --   buildoptions "-MDd"
+        filter { "system:windows", "configurations:Debug", "action:vs*" }
+            buildoptions "-MDd"
 
     filter "configurations:Release"
         defines "ERIN_RELEASE"
         runtime "Release"
         optimize "On"
-        --filter { "system:windows", "configurations:Release" }
-        --    buildoptions "/MD"
+        filter { "system:windows", "configurations:Release", "action:vs*"  }
+            buildoptions "/MD"
 
 -- Config for the Sandbox
 project "Sandbox"
@@ -198,13 +198,13 @@ project "Sandbox"
         defines "ERIN_DEBUG"
         runtime "Debug"
         symbols "On"
-        --filter { "system:windows", "configurations:Debug" }
-        --    buildoptions "-MDd"
+        filter { "system:windows", "configurations:Debug", "action:vs*"  }
+            buildoptions "-MDd"
 
     filter "configurations:Release"
         defines "ERIN_RELEASE"
         runtime "Release"
         optimize "On"
-        --filter { "system:windows", "configurations:Release" }
-        --    buildoptions "/MD"
+        filter { "system:windows", "configurations:Release", "action:vs*"  }
+            buildoptions "/MD"
 
