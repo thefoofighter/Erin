@@ -10,6 +10,9 @@
 *.vcxproj.filters
 cmake-build-debug/
 
+*.xcodeproj/
+*.xcworkspace/
+
 # User-specific files
 *.rsuser
 *.suo
