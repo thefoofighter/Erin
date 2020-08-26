@@ -13,5 +13,3 @@ rm Erin/3rdparty/glad/glad-premake-config.lua
 
 sed -i -e 's/--no-print-directory/--print-directory/g' Makefile
 rm Makefile-e
-
-#test
