@@ -1,6 +1,5 @@
 #pragma once
 
-
 extern Erin::Application* Erin::CreateApplication();
 
 int main(int argc, char** argv)

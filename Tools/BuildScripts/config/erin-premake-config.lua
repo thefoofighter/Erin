@@ -15,8 +15,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Erin/3rdparty/glfw/include"
+IncludeDir["Glad"] = "Erin/3rdparty/glad/include"
 
 include "Erin/3rdparty/glfw/glfw-premake-config.lua"
+include "Erin/3rdparty/glad/glad-premake-config.lua"
 
 -- Config for the Erin Engine
 project "Erin"
@@ -40,12 +42,14 @@ project "Erin"
     {
         "%{prj.name}/src",
         "%{prj.name}/3rdparty/spdlog/include",
-        "%{IncludeDir.GLFW}"
+        "%{IncludeDir.GLFW}",
+        "%{IncludeDir.Glad}",
     }
 
     links
     {
-        "GLFW"
+        "GLFW",
+        "Glad"
     }
 
     filter "system:windows"
@@ -56,7 +60,8 @@ project "Erin"
         defines
         {
             "ERIN_PLATFORM_WINDOWS",
-            "ERIN_BUILD_DLL"
+            "ERIN_BUILD_DLL",
+            "GLFW_INCLUDE_NONE"
         }
 
         links
