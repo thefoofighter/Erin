@@ -1,3 +1,6 @@
 [submodule "Erin/3rdparty/glfw"]
 	path = Erin/3rdparty/glfw
 	url = https://github.com/thefoofighter/glfw.git
+[submodule "Erin/3rdparty/spdlog"]
+	path = Erin/3rdparty/spdlog
+	url = https://github.com/thefoofighter/spdlog
