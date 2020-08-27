@@ -16,9 +16,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "Erin/3rdparty/glfw/include"
 IncludeDir["Glad"] = "Erin/3rdparty/glad/include"
+IncludeDir["ImGui"] = "Erin/3rdparty/imgui"
 
 include "Erin/3rdparty/glfw/glfw-premake-config.lua"
 include "Erin/3rdparty/glad/glad-premake-config.lua"
+include "Erin/3rdparty/imgui/imgui-premake-config.lua"
 
 -- Config for the Erin Engine
 project "Erin"
@@ -44,12 +46,14 @@ project "Erin"
         "%{prj.name}/3rdparty/spdlog/include",
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.Glad}",
+        "%{IncludeDir.ImGui}"
     }
 
     links
     {
         "GLFW",
-        "Glad"
+        "Glad",
+        "ImGui"
     }
 
     filter "system:windows"

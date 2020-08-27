@@ -14,3 +14,5 @@ rm -fr Erin/Erin.xcodeproj/
 rm -fr Erin/3rdparty/glfw/GLFW.xcodeproj/
 rm -fr Build/
 rm -fr Erin/3rdparty/glfw/Build
+rm -fr Erin/3rdparty/glad/Build
+rm -fr Erin/3rdparty/imgui/Build

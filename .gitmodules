@@ -4,3 +4,6 @@
 [submodule "Erin/3rdparty/spdlog"]
 	path = Erin/3rdparty/spdlog
 	url = https://github.com/thefoofighter/spdlog
+[submodule "Erin/3rdparty/imgui"]
+	path = Erin/3rdparty/imgui
+	url = https://github.com/thefoofighter/imgui

@@ -34,10 +34,6 @@ namespace Erin {
 		ERIN_LOG_INFO("Creating window {0} ({1}, {2})", props.Title, props.Width, props.Height);
 
 
-		// only mac is limited to 4.1, modularize this in the future and investigate metal as mac alternative
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
-        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 		if (!s_GLFWInitialized) {
 			// TODO: glfwTerminate on system shutdown
@@ -46,6 +42,15 @@ namespace Erin {
 			glfwSetErrorCallback(GLFWErrorCallback);
 			s_GLFWInitialized = true;
 		}
+
+
+        // only mac is limited to 4.1, modularize this in the future and investigate metal as mac alternative
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
+        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+#if defined(ERIN_PLATFORM_MAC)
+        glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+#endif
 
 		m_Window = glfwCreateWindow((int) props.Width, (int) props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);

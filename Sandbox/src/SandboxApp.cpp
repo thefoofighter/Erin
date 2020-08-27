@@ -26,6 +26,7 @@ public:
 	SandboxApp(){
         Erin::Log::InitClientLogger("Sandbox");
         PushLayer(new ExampleLayer());
+        PushOverlay(new Erin::ImGuiLayer());
 	}
 	~SandboxApp(){}
 
