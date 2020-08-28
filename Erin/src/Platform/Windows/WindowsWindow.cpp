@@ -45,10 +45,13 @@ namespace Erin {
 
 
         // only mac is limited to 4.1, modularize this in the future and investigate metal as mac alternative
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
+        // seems manjaro on vmware is limited to 3.2
+        // this all needs further investigation to make a more robust system,
+        // one that perhaps selects the best version based on hardware & drivers etc
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-#if defined(ERIN_PLATFORM_MAC)
+#if defined(ERIN_PLATFORM_MAC) || defined(ERIN_PLATFORM_LINUX)
         glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
 
